@@ -1,5 +1,5 @@
 
-rows = 5
+rows = int(input("Enter no of lines: "))
 k = 2 * rows - 2
 for i in range(rows):
     for _ in range(k):
