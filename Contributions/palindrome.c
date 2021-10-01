@@ -16,4 +16,4 @@ int main() {						//main function
 		printf("Non-palindrome");	//printing if number is not palindrome
 	}
 	return 0; 						//returning main function
-}
+}									//close brases
