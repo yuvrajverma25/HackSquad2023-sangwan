@@ -11,7 +11,7 @@ A Beginner friendly repo to push PRs for Hacktoberfest2021
 
 To know more about the event: <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest2021</a> |
 <a href="https://hacktoberfest.digitalocean.com/resources/participation">Participation rules</a> |
-<a href="hhttps://hacktoberfestswaglist.com/">Swag List</a>
+<a href="https://hacktoberfestswaglist.com/">Swag List</a>
 <br>
 
 ### How to contribute?
