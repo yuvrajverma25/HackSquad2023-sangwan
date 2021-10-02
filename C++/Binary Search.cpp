@@ -1,28 +1,44 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-  
-//recursive way
 
-int binarySearch(int arr[], int l, int r, int x)
-{
-    if (r >= l) {
-        int mid = l + (r - l) / 2;
-        if (arr[mid] == x)
-            return mid;
-        if (arr[mid] > x)
-            return binarySearch(arr, l, mid - 1, x);
-        return binarySearch(arr, mid + 1, r, x);
-    }
-    return -1;
+// This program performs a binary search through an array, must be sorted to work
+int binarySearch(int array[], int size, int value) 
+{   
+    int first = 0,         // First array element       
+    last = size - 1,       // Last array element       
+    middle,                // Mid point of search       
+    position = -1;         // Position of search value   
+    bool found = false;        // Flag   
+    while (!found && first <= last) 
+    {      
+        middle = (first + last) / 2;     // Calculate mid point      
+        if (array[middle] == value)      // If value is found at mid      
+    	{         
+                found = true;         
+                position = middle;      
+        }      
+        else if (array[middle] > value)  // If value is in lower half         
+            last = middle - 1;      
+        else         
+            first = middle + 1;          // If value is in upper half   
+    }   
+    return position;
 }
-  
-int main(void)
+int main ()
 {
-    int arr[] = { 2, 3, 4, 10, 40 };
-    int x = 10;
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int result = binarySearch(arr, 0, n - 1, x);
-    (result == -1) ? cout << "Element is not present in array"
-                   : cout << "Element is present at index " << result;
+    const int size = 5; // size initialization
+    int array[size] = {1, 2, 3, 4, 5}; // declare array of size 10
+    int value; // declare value to be searched for
+    int result; // declare variable that will be returned after binary search
+
+    cout << "What value would you like to search for? "; // prompt user to enter value
+    cin >> value;
+    result = binarySearch(array, size, value);
+
+    if (result == -1) // if value isn't found display this message
+        cout << "Not found\n";
+    else  // If value is found, displays message
+        cout << "Your value is in the array.\n"; 
+  
     return 0;
 }
