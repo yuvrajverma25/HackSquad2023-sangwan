@@ -1,44 +1,96 @@
-# Rabin-Karp algorithm in python
+import time
+import random
+def decorator(func):
+    def inner(*args,**kwargs):
+        start = time.time()
+        func(*args,**kwargs)
+        end= time.time()
+        print("time taken is",end-start)
+
+    return inner
+
+@decorator
+def brute_force(s,pattern):
+    for i in range(len(s)-len(pattern)):
+        if s[i:i+len(pattern)]==pattern:
+            # pass
+            print("MATCH")
 
 
-d = 10
+@decorator
+def without_hashing(s,pattern):
+    b=1
+    p=0
+    t=0
+    for i in range(len(pattern)):
+        p=p*2 + int(pattern[i])
+        t=t*2 + int(s[i])
 
-def search(pattern, text, q):
-    m = len(pattern)
-    n = len(text)
-    p = 0
-    t = 0
-    h = 1
-    i = 0
-    j = 0
+        b=b*2
 
-    for i in range(m-1):
-        h = (h*d) % q
+    # print("p initial is",p)
+    # print("t initial is",t)
+    
 
-    # Calculate hash value for pattern and text
-    for i in range(m):
-        p = (d*p + ord(pattern[i])) % q
-        t = (d*t + ord(text[i])) % q
+    for i in range(len(pattern),len(s)):
+        # print(s[i-len(pattern):i])
+        # print("p is ",p)
+        # print("t is ",t)
+        if p==t: 
+            print("MATCH")
+            # pass
 
-    # Find the match
-    for i in range(n-m+1):
-        if p == t:
-            for j in range(m):
-                if text[i+j] != pattern[j]:
-                    break
+        t=t*2 + int(s[i])-int(s[i-len(pattern)])*b
 
-            j += 1
-            if j == m:
-                print("Pattern is found at position: " + str(i+1))
+    if p==t: 
+        # pass
+        # print(p,t)
+        print("MATCH")
+# def brute_force()
+@decorator
+def with_hashing(s,pattern):
+    b=1
+    p=0
+    t=0
+    q=31#prime
+    for i in range(len(pattern)):
+        p=(p*2 + int(pattern[i]))%q
+        t=(t*2 + int(s[i]))%q
 
-        if i < n-m:
-            t = (d*(t-ord(text[i])*h) + ord(text[i+m])) % q
+        b=(b*2)%q
+        # print("p in initial loop is",p)
+    
 
-            if t < 0:
-                t = t+q
+    for i in range(len(pattern),len(s)):
+        # print(s[i-len(pattern):i])
+        # print("p is ",p)
+        # print("t is ",t)
 
+        if p==t: 
+            if (s[i-len(pattern):i]==pattern):
+                # pass
+                print("MATCH")
+        t=(t*2 + int(s[i])-int(s[i-len(pattern)])*b)%q
 
-text = "ABCCDDAEFGcddCDD"
-pattern = "CDD"
-q = 13
-search(pattern, text, q)
+    if p==t: 
+        if (s[i-len(pattern)+1:i+1]==pattern):
+            print("MATCH")
+            # pass
+if __name__=="__main__":
+    # s=input("enter a string of 1s and 0s")
+    # pattern=input("enter pattern")
+    s=pattern=""
+    for i in range(1000000):
+        s+=str(random.randint(0,1))
+    for i in range(100000):
+        pattern+=str(random.randint(0,1))
+    # pattern ="1010001"
+    # print(s)
+    print("bruteforce")
+    brute_force(s,pattern)
+    print("###########################")
+    print("without hashing")
+    without_hashing(s,pattern)
+    print("###########################")
+    print("with hashing")
+    with_hashing(s,pattern)
