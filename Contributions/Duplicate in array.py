@@ -5,7 +5,6 @@ def MissingNumber(arr):
     sum_by_formula = (n-2)*(n-1)//2
     ans = sum_of_arr - sum_by_formula
     return ans
-    pass
 
 # Main
 n=int(input())
