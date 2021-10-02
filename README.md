@@ -9,7 +9,8 @@ A Beginner friendly repo to push PRs for Hacktoberfest2021
 2. It is hosted by Digital Ocean in partnership with Github and other companies like DEV, Intel etc.
 3. All backgrounds and skill levels are encouraged to complete the challenge.
 
-To know more about the event: <a href="https://hacktoberfest.digitalocean.com/">Hactoberfest2021</a>
+To know more about the event: <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest2021</a> |
+<a href="https://hacktoberfest.digitalocean.com/resources/participation">Participation rules</a>
 
 <br>
 
