@@ -1,13 +1,15 @@
-#include <iostream>  
-using namespace std;  
-int main()  
-{  
-   int i,fact=1,number;    
-  cout<<"Enter any Number: ";    
- cin>>number;    
-  for(i=1;i<=number;i++){    
-      fact=fact*i;    
-  }    
-  cout<<"Factorial of " <<number<<" is: "<<fact<<endl;  
-  return 0;  
-}  
+#include <stdio.h>
+
+// factorial -> nx(n-1)x(n-2)x(n-3)x...
+int factorial(int number) {
+  if (number==0) return 1;
+  else return (number * factorial(number-1));
+}
+
+int main() {
+  int number;
+  scanf("%d", &number);
+  printf("The factorial of %d : %d\n", number, factorial(number));
+
+  return 0;
+}
