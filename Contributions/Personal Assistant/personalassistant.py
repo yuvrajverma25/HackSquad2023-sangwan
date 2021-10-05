@@ -1,3 +1,5 @@
+#This is a Personal Assistant program using Python.
+
 import pyttsx3 as py3
 import os
 import time
