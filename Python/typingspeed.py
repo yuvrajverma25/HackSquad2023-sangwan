@@ -22,7 +22,14 @@ while True:
         print("Your time was %s seconds" % total)
         total = int(total) / 60
         print("Speed was %s WPM" % (str(words // total)))
-        break
+        ans = input("Wanna go again? (Y/N)").lower()
+        if ans == 'y':
+            print("\nType the sentence given below")
+            print(s,"\n")
+            input("Press any key to Start:")
+            
+        else:
+            break
 
     else:
         print("\nWrongly entered -  Enter the sentence as it is shown\n")
