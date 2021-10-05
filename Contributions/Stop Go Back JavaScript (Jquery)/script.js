@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    let width = $('.traffic-lights').width();
+    let width = '500px'
     // Start animation
     $("#go").click(function () {
         $(".car-container").animate({
