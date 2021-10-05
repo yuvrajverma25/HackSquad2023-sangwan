@@ -10,11 +10,15 @@ struct node *link;
 void create()
 {
 int value,choice;
+   
+   
 do{ struct node* newnode=(struct node*)malloc(sizeof(struct node));
 printf("enter the vlaue");
 scanf("%d",&value);
 newnode->info=value;
-newnode->link=NULL;
+newnode->link=NULL;//assigning link to null
+   
+   
 if(start==NULL)
 {
 start=newnode;
@@ -26,12 +30,14 @@ last->link=newnode;
 last=newnode;
 last->link=NULL;
 }
+ //continuing for this
 printf("1 to continue");
 scanf("%d",&choice);
 }
 while(choice==1);
 }
 
+//displaying the list
 
 void display()
 {
