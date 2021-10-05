@@ -14,7 +14,9 @@ do{ struct node* newnode=(struct node*)malloc(sizeof(struct node));
 printf("enter the vlaue");
 scanf("%d",&value);
 newnode->info=value;
-newnode->link=NULL;
+newnode->link=NULL;//assigning link to null
+   
+   
 if(start==NULL)
 {
 start=newnode;
