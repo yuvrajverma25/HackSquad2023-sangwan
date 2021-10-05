@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>stop demo</title>
+    <style>
+        .car-container {
+            position: absolute;
+            left: 0px;
+            top: 300px;
+            width: 200px;
+            height: auto;
+            margin: 30px;
+        }
+
+        .traffic-lights {
+            padding: 100px;
+            background-image: url(./bg.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 500px;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="traffic-lights text-center">
+            <div class="traffic-lights-btn">
+                <button class="btn btn-success" id="go">Go</button>
+                <button class="btn btn-danger" id="stop">STOP!</button>
+                <button class="btn btn-info" id="back">Back</button>
+            </div>
+            <div class="car-container">
+                <img src="./car.svg" alt="Car">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Start animation
+        $("#go").click(function () {
+            $(".car-container").animate({
+                left: "+=500px"
+            }, 3000);
+        });
+
+        // Stop animation when button is clicked
+        $("#stop").click(function () {
+            $(".car-container").stop();
+        });
+
+        // Start animation in the opposite direction
+        $("#back").click(function () {
+            $(".car-container").animate({
+                left: "-=500px"
+            }, 3000);
+        });
+    </script>
+
+</body>
+
+</html>
