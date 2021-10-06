@@ -26,5 +26,6 @@ jobs:
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_METHOD: "merge"
+          MERGE_LABELS: "!wip"
           MERGE_COMMIT_MESSAGE: "pull-request-title"
           MERGE_REQUIRED_APPROVALS: "0"
