@@ -16,7 +16,7 @@ To know more about the event: <a href="https://hacktoberfest.digitalocean.com/">
 
 ### How to contribute?
 
-* Fork this repo
+* Fork this repository
 * Create a new file in "Contributions" folder
 * Add any code in any language you like
 * Push PR
